@@ -17,6 +17,6 @@ class BasePage(object):
         what - что искать (строку-селектор). """
         try:
             self.browser.find_element(how, what)
-        except NoSuchElementException:
+        except NoSuchElementException:  # имя исключения
             return False
         return True
