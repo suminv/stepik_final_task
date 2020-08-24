@@ -11,9 +11,11 @@ class ProductPage(BasePage):
         assert self.is_element_present(
             *ProductPageLocators.ADD_TO_BASKET_BUTTON), "Add to basket button is not displayed"
 
-    # def return_to_basket_message(self):
-    #     """поиск сообщения, что товар добавлен в корзину """
-    #     return self.browser.find_element(*ProductPageLocators.MESSAGE).text
+    def should_be_add_to_basket_message(self):
+        """проверка, что есть сообщение про доавление товара в корзину: has been added to your basket."""
+        assert self.is_element_present(
+            *ProductPageLocators.MESSAGE_ADD_TO_BASKET
+        ), "No alert that a product has been added to cart"
 
     def return_basket_name_item(self):
         """поиск имени добавленного товара в корзину"""
@@ -32,14 +34,14 @@ class ProductPage(BasePage):
         return self.browser.find_element(*ProductPageLocators.PRICE_PRODUCT).text
 
     def should_be_add_to_basket_name(self):
-        """сравниваем название товара с корзины  с карточкой товара"""
+        """сравниваем название товара в карточке с названием с корзины"""
         # self.return_name_product()
         # self.return_basket_name_item()
         assert self.return_name_product() == self.return_basket_name_item(), f'Товар {self.return_name_product()} не ' \
                                                                              f'в корзине '
 
     def should_be_add_to_basket_price(self):
-        """сравниваем цену товара с корзины  с ценой с карточки"""
+        """сравниваем цену товара карточки с ценой товара в корзине"""
         # self.return_basket_price()
         # self.return_price_product()
         assert self.return_price_product() == self.return_basket_price(), f'Цена {self.return_price_product()} не в ' \
