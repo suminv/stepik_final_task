@@ -13,6 +13,7 @@ class BasePageLocators:
 
 
 class BasketPageLocators:
+    BASKET_LINK_PAGE = (By.CSS_SELECTOR, 'a.btn.btn-default')
     MESSAGE_NAME_ITEM_IN_BASKET = (
         By.CSS_SELECTOR, '.alert.alert-safe.alert-noicon.alert-success.fade.in > div> strong')
     MESSAGE_PRICE_ITEM_IN_BASKET = (
